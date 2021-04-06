@@ -1,0 +1,3 @@
+/group/c-polhe3/Users/murchhana/mc-single-arm/run_mc_single_arm
+/group/c-polhe3/Users/murchhana/mc-single-arm/src/mc_single_arm
+/group/c-polhe3/Users/murchhana/mc-single-arm/infiles/smallJob.inp

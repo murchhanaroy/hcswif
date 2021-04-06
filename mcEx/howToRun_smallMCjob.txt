@@ -1,0 +1,22 @@
+From command line do these five steps
+
+Here "smallMCjob.sh" is the script you want to run and "myfiles.txt" is a list of files needed to run it
+
+******** Create JSON file *********
+./hcswif.py --mode command --command source /group/c-polhe3/Users/wmhenry/hcswif/mcEx/smallMCjob.sh --name myMC --project cgen --filelist mcEx/myfiles.txt
+
+******** Check JSON file *********
+cd path/to/hcswif/out_dir
+python -m json.tool myMC.json
+
+******** Create Workflow *********
+swif import -file myMC.json
+
+******** Run Workflow *********
+swif run myMC
+
+******** Check Status *********
+swif list
+
+******** Delete workflow *********
+swif cancel -delete -workflow myMC

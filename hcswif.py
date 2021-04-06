@@ -14,12 +14,12 @@ import warnings
 # Define environment
 
 # Where do you want your job output (json files, stdout, stderr)?
-out_dir = os.path.join('/home/', getpass.getuser() , 'hcswif/output')
+out_dir = os.path.join('/u/group/c-polhe3/Users/', getpass.getuser() , 'hcswif/output')
 if not os.path.isdir(out_dir):
     warnings.warn('out_dir: ' + out_dir + ' does not exist')
 
 # Where is your raw data?
-raw_dir = '/mss/hallc/spring17/raw'
+raw_dir = '/cache/hallc/c-polhe3/raw'
 if not os.path.isdir(raw_dir):
     warnings.warn('raw_dir: ' + raw_dir + ' does not exist')
 
@@ -150,8 +150,8 @@ def getReplayJobs(parsed_args, wf_name):
         else:
             script_dict = { 'HMS_ALL'     : 'SCRIPTS/HMS/PRODUCTION/replay_production_all_hms.C',
                             'SHMS_ALL'    : 'SCRIPTS/SHMS/PRODUCTION/replay_production_all_shms.C',
-                            'HMS_PROD'    : 'SCRIPTS/HMS/PRODUCTION/replay_production_hms.C',
-                            'SHMS_PROD'   : 'SCRIPTS/SHMS/PRODUCTION/replay_production_shms.C',
+                            'HMS_PROD'    : 'SCRIPTS/src/replay_hms.cxx',
+                            'SHMS_PROD'   : 'SCRIPTS/src/replay_shms.cxx',
                             'HMS_COIN'    : 'SCRIPTS/HMS/PRODUCTION/replay_production_hms_coin.C',
                             'SHMS_COIN'   : 'SCRIPTS/SHMS/PRODUCTION/replay_production_shms_coin.C',
                             'HMS_SCALER'  : 'SCRIPTS/HMS/SCALERS/replay_hms_scalers.C',
@@ -377,7 +377,7 @@ def addCommonJobInfo(workflow, parsed_args):
         job['stderr'] = os.path.join(out_dir, job['name'] + '.err')
 
         # TODO: Allow user to specify all of these parameters
-        job['os'] = 'centos7'
+        job['os'] = 'centos77'
         job['track'] = 'analysis'
         job['diskBytes'] = disk_bytes
         job['ramBytes'] = ram_bytes
